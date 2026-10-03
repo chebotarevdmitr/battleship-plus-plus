@@ -1,0 +1,107 @@
+# === Папки сборки (не коммитим, их можно пересобрать) ===
+build/
+out/
+cmake-build-*/
+
+# === Объектные и исполняемые файлы ===
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+*.pdb
+*.ilk
+*.idb
+
+# === Исполняемые файлы проекта ===
+battleship_cli
+battleship_gui
+
+# === vcpkg (слишком большой для GitHub) ===
+vcpkg_installed/
+
+# === Компиляционные базы данных ===
+compile_commands.json
+.clangd/
+.cache/
+
+# === CMake (артефакты сборки вне папки build) ===
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CMakeUserPresets.json
+
+# === Тестирование и покрытие кода ===
+Testing/
+coverage/
+*.gcda
+*.gcno
+*.gcov
+*.lcov
+
+# === Профилирование (perf, Valgrind, KCachegrind) ===
+perf.data
+perf.data.old
+callgrind.out.*
+*.callgrind*
+valgrind.out.*
+massif.out.*
+*.cachegrind*
+
+# === Qt-специфичные файлы ===
+*.pro.user
+*.user
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.qmlc
+.qmake.stash
+
+# === IDE и редакторы (личное, не коммитим) ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+
+# === Системные файлы ===
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# === Временные файлы ===
+*.log
+*.tmp
+*.bak
+
+# === Архивы и установщики ===
+*.zip
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+*.deb
+*.rpm
+
+# === Секреты и локальные конфиги ===
+.env
+*.key
+*.pem
+secrets.h
+config.local.h
+
+# === Node.js и Python (если вдруг добавим скрипты) ===
+node_modules/
+__pycache__/
+*.pyc
