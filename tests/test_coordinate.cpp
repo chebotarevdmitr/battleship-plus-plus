@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../include/core/Coordinate.hpp"
+#include "core/Coordinate.hpp"
 
 namespace battleship::core {
 

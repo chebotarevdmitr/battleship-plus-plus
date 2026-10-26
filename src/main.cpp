@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/core/Coordinate.hpp"
+#include "core/Coordinate.hpp"
 
 int main() {
     std::cout << "🚢 Battleship++ Console Version is starting...\n";
