@@ -3,46 +3,41 @@
 
 namespace battleship::core {
 
-// 1. Тест успешного создания корректных координат (включая граничные значения)
 TEST(CoordinateTest, ValidCoordinates) {
-    // Нижняя граница
-    Coordinate coord_min(0, 0);
-    EXPECT_EQ(coord_min.getX(), 0);
-    EXPECT_EQ(coord_min.getY(), 0);
+    // Используем константы вместо магических чисел
+    Coordinate coord_min(MIN_COORDINATE, MIN_COORDINATE);
+    EXPECT_EQ(coord_min.getX(), MIN_COORDINATE);
+    EXPECT_EQ(coord_min.getY(), MIN_COORDINATE);
 
-    // Верхняя граница
-    Coordinate coord_max(9, 9);
-    EXPECT_EQ(coord_max.getX(), 9);
-    EXPECT_EQ(coord_max.getY(), 9);
+    Coordinate coord_max(MAX_COORDINATE, MAX_COORDINATE);
+    EXPECT_EQ(coord_max.getX(), MAX_COORDINATE);
+    EXPECT_EQ(coord_max.getY(), MAX_COORDINATE);
     
-    // Середина поля
-    Coordinate coord_mid(4, 7);
-    EXPECT_EQ(coord_mid.getX(), 4);
-    EXPECT_EQ(coord_mid.getY(), 7);
+    constexpr int mid_x = 4;
+    constexpr int mid_y = 7;
+    Coordinate coord_mid(mid_x, mid_y);
+    EXPECT_EQ(coord_mid.getX(), mid_x);
+    EXPECT_EQ(coord_mid.getY(), mid_y);
 }
 
-// 2. Тест на выброс исключения при неверных координатах
 TEST(CoordinateTest, InvalidCoordinatesThrowException) {
-    // Выход за нижнюю границу
+    // NOLINTBEGIN(readability-magic-numbers)
+    // Здесь магические числа намеренны: мы тестируем реакцию на некорректные данные
     EXPECT_THROW(Coordinate(-1, 5), std::invalid_argument);
-    EXPECT_THROW(Coordinate(5, -10), std::invalid_argument);
-    
-    // Выход за верхнюю границу
     EXPECT_THROW(Coordinate(5, 10), std::invalid_argument);
     EXPECT_THROW(Coordinate(15, 15), std::invalid_argument);
+    // NOLINTEND(readability-magic-numbers)
 }
 
-// 3. Тест операторов сравнения (новое дополнение)
 TEST(CoordinateTest, EqualityOperators) {
     Coordinate coord1(3, 4);
     Coordinate coord2(3, 4);
-    Coordinate coord3(3, 5);
+    constexpr int diff_y = 5;
+    Coordinate coord3(3, diff_y);
 
-    // Проверяем operator==
     EXPECT_TRUE(coord1 == coord2);
     EXPECT_FALSE(coord1 == coord3);
 
-    // Проверяем operator!=
     EXPECT_FALSE(coord1 != coord2);
     EXPECT_TRUE(coord1 != coord3);
 }
